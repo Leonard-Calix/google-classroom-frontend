@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    z-index: 999;
+    background: white;
+    color: #fff;
+    transition: all 0.3s;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+
+#dismiss:hover {
+    background: #fff;
+    color: white;
+}
+
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background:white;
+}
+
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: black;
+    background: white;
+}
+
