@@ -1,3 +1,14 @@
-<app-navbar (enviarInstructor)="obtenerInstructor($event)" ></app-navbar>
+<app-navbar (enviarRegion)="obtenerRegion($event)" (enviarInstructor)="obtenerInstructor($event)"></app-navbar>
 
-<app-clases #clases ></app-clases>
+<app-clases (enviarClase)="obtenerClaseSeleccionada($event)" *ngIf="!claseSeleccionada" #clases></app-clases>
+
+
+<div *ngIf="claseSeleccionada" >
+
+    <app-participantes *ngIf="regionSeleccionada == 'participantes'" ></app-participantes>
+
+    <app-anuncios *ngIf="regionSeleccionada == 'anuncios'" ></app-anuncios>
+
+    <app-asignaciones *ngIf="regionSeleccionada == 'asignaciones'" ></app-asignaciones>
+
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IntructoresService } from 'src/app/services/intructores.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class ClasesComponent implements OnInit {
   constructor(private instructorService: IntructoresService) { }
 
   clases: any = [];
+  @Output() enviarClase = new EventEmitter();
 
   ngOnInit(): void {
   }
@@ -21,5 +22,12 @@ export class ClasesComponent implements OnInit {
       console.log(this.clases);
     });
   }
+
+  seleccionarClase(id:any){
+    this.enviarClase.emit(id);
+  }
+
+
+
 
 }

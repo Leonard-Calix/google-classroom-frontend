@@ -1,6 +1,35 @@
-
-
-
-<div *ngFor="let item of clases" class="text-center" >
-    <h1 class="m-4 p-4" > {{ item.nombreClase }} </h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-3 col-sm-6 mt-2 " *ngFor="let item of clases">
+            <div class="card pointer" (click)="seleccionarClase(item._id)" >
+                <div style="text-decoration: none;">
+                    <div class="card-header pt-3 pb-3"
+                        style="background-image: url('../../../assets/img/img_reachout.jpg');background-repeat: no-repeat; background-size: cover;">
+                        <div class="row" style="color: white; overflow: hidden;">
+                            <div class="col-9">
+                                <h4 class="pointer text-left">{{item.nombreClase}}</h4>
+                                <h6>{{item.seccion}}</h6>
+                            </div>
+                            <div class="col">
+                                <button class="btn "><i style="color: white;" class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        tarea
+                    </div>
+                    <div class="card-footer">
+                        <div class="row no-gutters">
+                            <div class="offset-8 col-1">
+                                <button class="btn"><i class="fas fa-chart-line"></i></button>
+                            </div>
+                            <div class="offset-1 col-1">
+                                <button class="btn"><i class="fas fa-folder"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

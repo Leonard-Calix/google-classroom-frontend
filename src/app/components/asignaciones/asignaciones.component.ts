@@ -12,4 +12,8 @@ export class AsignacionesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  obtenerAsignaciones(){
+    console.log('asignaciones')
+  }
+
 }

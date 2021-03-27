@@ -19,5 +19,18 @@ export class IntructoresService {
   obtenerClases(id:any){
     return this.http.get(this.rutaApi+id);
   }
+  //http://localhost:3000/instructor/605959a389dfe75ea4e832d8/clases/605961bf04468e7372b6920b/anuncios
+  obtenerAnuncios(idInstructor:any, idClase:any){
+    return this.http.get(`${this.rutaApi}${idInstructor}/clases/${idClase}/anuncios`);
+  }
 
+  //http://localhost:3000/instructor/605959a389dfe75ea4e832d8/clases/605961bf04468e7372b6920b/participantes
+  obtenerParticipantes(idInstructor:any, idClase:any){
+    return this.http.get(`${this.rutaApi}${idInstructor}/clases/${idClase}/participantes`);
+  }
+
+   //http://localhost:3000/instructor/605959a389dfe75ea4e832d8/clases/605961bf04468e7372b6920b/asignaciones
+   obtenerAsignaciones(idInstructor:any, idClase:any){
+    return this.http.get(`${this.rutaApi}${idInstructor}/clases/${idClase}/asignaciones`);
+  }
 }

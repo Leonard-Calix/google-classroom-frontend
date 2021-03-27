@@ -10,8 +10,14 @@ export class NavbarComponent implements OnInit {
 
   instructores: any = [];
   @Output() enviarInstructor = new EventEmitter();
+  @Output() enviarRegion = new EventEmitter();
+  @Output() retornarIndex = new EventEmitter();
+
 
   constructor(private instructorService: IntructoresService) { }
+
+  mostrarMenu:boolean = false;
+  nombreClase:any;
 
   ngOnInit(): void {
 
@@ -19,6 +25,10 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  seleccionarRegion(region:any){
+    this.enviarRegion.emit(region);
+  }
+  
   obtenerInstructores(){
     this.instructorService.obtenerInstructores().subscribe((data:any)=>{
       console.log(data);

@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class=" mt-2">
-        <a href="index.html">
-            <i class="fas fa-2x fa-bars mr-3"></i>
-            <img src="../../../assets/img/GoogleClassroomBanner.png" width="150px" class="img-fluid" alt="">
+        <a href="/">
+
+            
+            <i class="fas fa-1x fa-bars mr-3"></i>  {{ nombreClase }}
+
+            <img *ngIf="!mostrarMenu" src="../../../assets/img/GoogleClassroomBanner.png" width="150px" class="img-fluid" />
         </a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -11,8 +14,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+        <ul class="navbar-nav mr-auto ml-auto">
+            <li *ngIf="mostrarMenu" (click)="seleccionarRegion('anuncios')" style="cursor: pointer;"
+                class="nav-item mr-2 m-2 text-muted">
+                Clase
+            </li>
+            <li *ngIf="mostrarMenu" (click)="seleccionarRegion('asignaciones')" style="cursor: pointer;"
+                class="nav-item mr-2 m-2 text-muted">
+                Asiganciones
+            </li>
+            <li *ngIf="mostrarMenu" (click)="seleccionarRegion('participantes')" style="cursor: pointer;"
+                class="nav-item mr-2 m-2 text-muted">
+                Participantes
             </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">

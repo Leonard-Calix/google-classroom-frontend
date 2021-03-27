@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IntructoresService } from 'src/app/services/intructores.service';
 
 @Component({
   selector: 'app-participantes',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParticipantesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private instructorService: IntructoresService) { }
+  participantes: any = []
 
   ngOnInit(): void {
+  }
+
+  obtenerParticipantes(idInstructor: any, idClase: any) {
+
+    this.instructorService.obtenerParticipantes(idInstructor, idClase).subscribe((data: any) => {
+      this.participantes = data;
+      console.log(data)
+    });
+
   }
 
 }

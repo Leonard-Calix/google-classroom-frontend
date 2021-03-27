@@ -1,1 +1,18 @@
-<p>participantes works!</p>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of participantes">
+                <td>
+
+                    <img width="60px" height="60px" class="img-fluid rounded-circle" src="../../../assets/img/goku.jpg">
+                </td>
+
+                <td>{{item.nombre}}</td>
+                <td>{{item.correo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
