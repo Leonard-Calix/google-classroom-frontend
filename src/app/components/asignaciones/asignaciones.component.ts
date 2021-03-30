@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IntructoresService } from 'src/app/services/intructores.service';
 
 @Component({
   selector: 'app-asignaciones',
@@ -7,13 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsignacionesComponent implements OnInit {
 
-  constructor() { }
+  idInstructor:any;
+  idClase:any;
+  asignaciones:any = [];
+
+  constructor( private instructorService: IntructoresService ) { }
 
   ngOnInit(): void {
   }
 
-  obtenerAsignaciones(){
+  obtenerAsignaciones(idInstructor:any, idClase:any){
     console.log('asignaciones')
+    this.idInstructor = idInstructor;
+    this.idClase = idClase;
+    
+
+    this.instructorService.obtenerAsignaciones(this.idInstructor, this.idClase).subscribe(((data:any)=>{
+      this.asignaciones = data;
+      console.log(data)
+    }));
+
+
   }
 
 }

@@ -1,18 +1,54 @@
+<div class="container mt-4">
+    <div class="row" style="color: cornflowerblue;">
+        <div class="col-4">
+            <h2>Profesores</h2>
+        </div>
+        <div class="offset-7 col-1">
+            <button class="btn mt-2">
+                <i class="fas fa-user-plus" style="color: cornflowerblue;"></i>
+            </button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-1">
+            <img src="../../../assets/img/goku.jpg" id="imagen" class="img-fluid rounded-circle" alt="">
+        </div>
+        <div class="col-2 mt-3">
+            <h4 id="nombre">Goku</h4>
+        </div>
+    </div>
 
-<div class="container">
-    <table class="table">
-        <thead>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of participantes">
-                <td>
+    <div class="row mt-5" style="color: cornflowerblue;">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-10">
+                    <h2>Estudiantes</h2>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn mt-2">
+                        <i class="fas fa-user-plus" style="color: cornflowerblue;"></i>
+                    </button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of participantes">
+                        <td>
 
-                    <img width="60px" height="60px" class="img-fluid rounded-circle" src="../../../assets/img/goku.jpg">
-                </td>
+                            <img width="60px" height="60px" class="img-fluid rounded-circle"
+                                src="../../../assets/img/{{ item.imagen }}">
+                        </td>
 
-                <td>{{item.nombre}}</td>
-                <td>{{item.correo}}</td>
-            </tr>
-        </tbody>
-    </table>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.correo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<!---Modal--->

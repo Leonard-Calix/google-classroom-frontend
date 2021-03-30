@@ -1,1 +1,14 @@
-<p>asignaciones works!</p>
+<div class="container center mt-4">
+    <button class="btn btn-primary rounded" data-toggle="modal" data-target="#modalNuevoA">
+        <i class="fas fa-plus"></i> Nueva Asignacion
+    </button>
+    <table class="table mt-4">
+        <tbody id="asignaciones">
+            <tr *ngFor="let item of asignaciones" >
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.fecha_limite }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

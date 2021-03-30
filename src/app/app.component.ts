@@ -76,7 +76,7 @@ export class AppComponent {
     if (this.regionSeleccionada == 'asignaciones') {
 
       setTimeout(() => {
-        this.asignacionesComponent.obtenerAsignaciones();
+        this.asignacionesComponent.obtenerAsignaciones(this.idInstructor, this.idClaseSeleccionada);
       }, 100);
     }
   }
