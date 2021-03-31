@@ -2,10 +2,11 @@
     <div class=" mt-2">
         <a href="/">
 
-            
-            <i class="fas fa-1x fa-bars mr-3"></i>  {{ nombreClase }}
 
-            <img *ngIf="!mostrarMenu" src="../../../assets/img/GoogleClassroomBanner.png" width="150px" class="img-fluid" />
+            <i class="fas fa-1x fa-bars mr-3"></i> {{ nombreClase }}
+
+            <img *ngIf="!mostrarMenu" src="../../../assets/img/GoogleClassroomBanner.png" width="150px"
+                class="img-fluid" />
         </a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -21,7 +22,7 @@
             </li>
             <li *ngIf="mostrarMenu" (click)="seleccionarRegion('asignaciones')" style="cursor: pointer;"
                 class="nav-item mr-2 m-2 text-muted">
-                Asiganciones
+                Asignaciones
             </li>
             <li *ngIf="mostrarMenu" (click)="seleccionarRegion('participantes')" style="cursor: pointer;"
                 class="nav-item mr-2 m-2 text-muted">
@@ -69,7 +70,36 @@
     </div>
 </nav>
 
-
+<!-- Modal Instructor -->
+<div class="modal" id="modalNuevoInstructor" tabindex="-1" aria-labelledby="modalNuevaAppLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalNuevaAppLabel">Agregar Nuevo Instructor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- Defino lo que va dentro del modal -->
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control my-2" type="text" name="" id="nombre" placeholder="Nombre">
+                            <input class="form-control my-2" type="text" name="" id="correo" placeholder="Correo">
+                            <select class="form-control my-2" id="lista-imagenes">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-guardar" type="button" class="btn btn-primary"
+                    onclick="crearInstructor()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

@@ -4,11 +4,44 @@
     </button>
     <table class="table mt-4">
         <tbody id="asignaciones">
-            <tr *ngFor="let item of asignaciones" >
+            <tr *ngFor="let item of asignaciones">
                 <td>{{ item.nombre }}</td>
                 <td>{{ item.descripcion }}</td>
                 <td>{{ item.fecha_limite }}</td>
             </tr>
         </tbody>
     </table>
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal" id="modalNuevoA" tabindex="-1" aria-labelledby="modalNuevaAppLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalNuevaAppLabel">Nueva asignación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control my-2" type="text" id="titulo"
+                                placeholder="nombre de la asignación">
+                            <input class="form-control my-2" type="text" id="descripcion" placeholder="descripción">
+                            <input class="form-control my-2" type="date" id="fecha"
+                                placeholder="fecha límite de entrega">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-guardar" type="button" class="btn btn-primary"
+                    onclick="crearAsignacion()">Guardar</button>
+            </div>
+        </div>
+    </div>
 </div>

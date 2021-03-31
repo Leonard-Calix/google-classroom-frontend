@@ -11,6 +11,11 @@ export class ParticipantesComponent implements OnInit {
   constructor(private instructorService: IntructoresService) { }
   participantes: any = []
 
+  instructor: any = {
+    nombre: '',
+    imagen: ''
+  };
+
   ngOnInit(): void {
   }
 
@@ -19,6 +24,10 @@ export class ParticipantesComponent implements OnInit {
     this.instructorService.obtenerParticipantes(idInstructor, idClase).subscribe((data: any) => {
       this.participantes = data;
       console.log(data)
+
+      this.instructor.nombre = data.nombre;
+      this.instructor.imagen = data.imagen;
+
     });
 
   }
