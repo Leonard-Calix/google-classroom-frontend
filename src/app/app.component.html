@@ -3,12 +3,12 @@
 <app-clases (enviarClase)="obtenerClaseSeleccionada($event)" *ngIf="!claseSeleccionada" #clases></app-clases>
 
 
-<div *ngIf="claseSeleccionada" >
+<div *ngIf="claseSeleccionada">
 
-    <app-participantes *ngIf="regionSeleccionada == 'participantes'" ></app-participantes>
+    <app-participantes *ngIf="regionSeleccionada == 'participantes'"></app-participantes>
 
-    <app-anuncios *ngIf="regionSeleccionada == 'anuncios'" ></app-anuncios>
+    <app-anuncios *ngIf="regionSeleccionada == 'anuncios'"></app-anuncios>
 
-    <app-asignaciones *ngIf="regionSeleccionada == 'asignaciones'" ></app-asignaciones>
+    <app-asignaciones *ngIf="regionSeleccionada == 'asignaciones'"></app-asignaciones>
 
 </div>

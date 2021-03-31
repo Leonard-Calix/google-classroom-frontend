@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { IntructoresService } from 'src/app/services/intructores.service';
 
 @Component({
@@ -8,22 +9,35 @@ import { IntructoresService } from 'src/app/services/intructores.service';
 })
 export class AsignacionesComponent implements OnInit {
 
-  idInstructor:any;
-  idClase:any;
-  asignaciones:any = [];
+  idInstructor: any;
+  idClase: any;
+  asignaciones: any = [];
 
-  constructor( private instructorService: IntructoresService ) { }
+  formularioAsignaciones = new FormGroup({
+    nombre: new FormControl(),
+    descripcion: new FormControl(),
+    fecha_limite: new FormControl(),
+  });
+
+  constructor(private instructorService: IntructoresService) { }
 
   ngOnInit(): void {
   }
 
-  obtenerAsignaciones(idInstructor:any, idClase:any){
+  agregarAsignacion(){
+    this.instructorService.agregarAsignaciones(this.idInstructor, this.idClase, this.formularioAsignaciones.value).subscribe((res:any)=>{
+      console.log(res);
+      this.obtenerAsignaciones(this.idInstructor,this.idClase);
+    });
+  }
+
+  obtenerAsignaciones(idInstructor: any, idClase: any) {
     console.log('asignaciones')
     this.idInstructor = idInstructor;
     this.idClase = idClase;
-    
 
-    this.instructorService.obtenerAsignaciones(this.idInstructor, this.idClase).subscribe(((data:any)=>{
+
+    this.instructorService.obtenerAsignaciones(this.idInstructor, this.idClase).subscribe(((data: any) => {
       this.asignaciones = data;
       console.log(data)
     }));

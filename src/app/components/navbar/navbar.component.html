@@ -32,27 +32,33 @@
         <div class="form-inline my-2 my-lg-0">
 
             <div class="">
+
+                <button class="btn dropdown-toogle" type="button" data-target="#modalNuevaClase"
+                    data-toggle="modal">
+                    <i class="fas fa-plus"></i>
+                </button>
+
+
                 <button class="btn dropdown-toogle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="../../../assets/img/goku.jpg" width="40px" class="img-fluid rounded-circle"
+                    <img src="../../../assets/img/{{ instructor.imagen }}" width="40px" class="img-fluid rounded-circle"
                         id="img-perfil-activo" alt="" />
                 </button>
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"
                     style="width: 400px;">
                     <div class="container" id="contenedor-instructor">
-
                         <div style="cursor: pointer;" (click)="seleccionarInstructor(item._id)"
                             *ngFor="let item of instructores" class="row p-3">
                             <div class="col-md-4">
-                                <img src="../../../assets/img/goku.jpg" width="40px" class="img-fluid rounded-circle"
-                                    alt="">
+                                <img src="../../../assets/img/{{ item.imagen }}" width="40px"
+                                    class="img-fluid rounded-circle" alt="">
                             </div>
                             <div class="col-md-8">
                                 <h6>{{ item.nombre }}</h6>
                                 <h6 class="text-sm text-muted">{{ item.correo }}</h6>
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="offset-1 col-2 mt-2">
@@ -63,8 +69,10 @@
                                 data-toggle="modal">Agregar Instructor</button>
                         </div>
                     </div>
-
                 </div>
+
+
+
             </div>
         </div>
     </div>
@@ -84,30 +92,24 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
-                            <input class="form-control my-2" type="text" name="" id="nombre" placeholder="Nombre">
-                            <input class="form-control my-2" type="text" name="" id="correo" placeholder="Correo">
-                            <select class="form-control my-2" id="lista-imagenes">
+                        <form [formGroup]="formularioInstructor" class="col-12">
+                            <input formControlName="nombre" class="form-control my-2" type="text" placeholder="Nombre">
+                            <input formControlName="correo" class="form-control my-2" type="text" placeholder="Correo">
+                            <select formControlName="imagen" class="form-control my-2" id="lista-imagenes">
+                                <option *ngFor="let item of imagenes" value="{{ item.imagen }}">{{ item.nombre_p }}
+                                </option>
                             </select>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button id="btn-guardar" type="button" class="btn btn-primary"
-                    onclick="crearInstructor()">Guardar</button>
+                    (click)="agregarInstructor()">Guardar</button>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 <nav class="navbar border navbar-expand-lg d-none">
@@ -172,3 +174,45 @@
         </div>
     </div>
 </nav>
+
+
+
+<!-- Modal Crear Clase -->
+<div class="modal" id="modalNuevaClase" tabindex="-1" role="dialog" aria-labelledby="modalLogin" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalNuevaAppLabel">Agregar Nueva Clase</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="formularioClase" class="modal-body">
+
+                <div class="form-group">
+                    <label for="usuario" class="form-horizontal control-label">Nombre Asignatura</label>
+                    <input formControlName="nombreClase" type="text" class="form-control" id="nombreA" placeholder="Nombre Asignatura">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Código</label>
+                    <input formControlName="codigo" type="text" class="form-control" id="codigoA" placeholder="Codigo">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Sección</label>
+                    <input formControlName="seccion" type="text" class="form-control" id="seccionA" placeholder="Sección">
+                </div>
+
+                <div class="form-group">
+                    <label for="aula">Descripcion</label>
+                    <input formControlName="descripcion" type="text" class="form-control" id="descripcionA" placeholder="Descripcion">
+                </div>
+
+            </form>
+            <button type="button" class="btn btn-primary" (click)="crearClase()"
+                style="width: 100px; margin: 0 auto;">Agregar</button><br>
+
+        </div>
+    </div>
+</div>

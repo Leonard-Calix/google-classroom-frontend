@@ -52,7 +52,7 @@
 </div>
 
 <!---Modal--->
-<div class="row">
+<div class="row" *ngIf="participantes.length == 0" >
     <div class="col-12 text-center">
         <img src="../../../assets/img/invitar_estudiantes.png" id="img-invitar" class="img-fluid" alt="">
     </div>
@@ -77,18 +77,19 @@
 
             <div class="modal-body">
                 <div class="container">
-                    <div class="row">
+                    <form [formGroup]="formularioParticipantes" class="row">
                         <div class="col-12">
-                            <input class="form-control my-2" type="text" name="" id="nombre_p" placeholder="nombre">
-                            <input class="form-control my-2" type="text" name="" id="correo" placeholder="correo">
-                            <select class="form-control my-2" id="lista-imagenes">
+                            <input formControlName="nombre" class="form-control my-2" type="text" placeholder="nombre">
+                            <input formControlName="correo" class="form-control my-2" type="text" placeholder="correo">
+                            <select formControlName="imagen" class="form-control my-2" id="lista-imagenes">
+                                <option  *ngFor="let item of imagenes"  value="{{ item.imagen }}">{{ item.nombre_p }}</option>
                             </select>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btn-guardar" type="button" class="btn btn-primary" onclick="invitar()">Guardar</button>
+                <button id="btn-guardar" (click)="agregarParticipante()" type="button" class="btn btn-primary" >Guardar</button>
             </div>
         </div>
     </div>

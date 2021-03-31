@@ -27,20 +27,20 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <div class="row">
+                    <form  [formGroup]="formularioAsignaciones" class="row">
                         <div class="col-12">
-                            <input class="form-control my-2" type="text" id="titulo"
+                            <input formControlName="nombre" class="form-control my-2" type="text" id="titulo"
                                 placeholder="nombre de la asignación">
-                            <input class="form-control my-2" type="text" id="descripcion" placeholder="descripción">
-                            <input class="form-control my-2" type="date" id="fecha"
+                            <input formControlName="descripcion" class="form-control my-2" type="text" id="descripcion" placeholder="descripción">
+                            <input formControlName="fecha_limite" class="form-control my-2" type="date" id="fecha"
                                 placeholder="fecha límite de entrega">
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <button id="btn-guardar" type="button" class="btn btn-primary"
-                    onclick="crearAsignacion()">Guardar</button>
+                    (click)="agregarAsignacion()">Guardar</button>
             </div>
         </div>
     </div>
